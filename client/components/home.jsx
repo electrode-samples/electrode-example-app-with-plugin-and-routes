@@ -1,7 +1,7 @@
-import React from "react";
+import React, { Component, PropTypes } from "react";
 import { Link } from "react-router";
 
-export class Home extends React.Component {
+export class Home extends Component {
 
   constructor(props) {
     super(props);
@@ -20,8 +20,8 @@ export class Home extends React.Component {
       const invitees = ourFriends.map(({name}) => {
         return { name, invited: false};
       });
-      this.setState({ourFriends, invitees});
-    })
+      this.setState({ourFriends, invitees}); //eslint-disable-line
+    });
   }
 
   componentView({ location: { pathname } }) {
@@ -47,7 +47,7 @@ export class Home extends React.Component {
         <p>Let"s have a house party and invite all of our friends!</p>
         <Link to="/invite">Click Here to Make it a Party!</Link>
       </div>
-    )
+    );
   }
 
   render() {
@@ -58,8 +58,14 @@ export class Home extends React.Component {
 
     return (
       <div>
-        {React.cloneElement(this.props.children, { ourFriends, invitees, toggleGuest, view, message })}
+        {React.cloneElement(this.props.children, {
+          ourFriends, invitees, toggleGuest, view, message
+        })}
       </div>
     );
   }
 }
+
+Home.propTypes = {
+  children: PropTypes.node
+};
