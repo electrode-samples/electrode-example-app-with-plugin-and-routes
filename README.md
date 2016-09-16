@@ -1,27 +1,27 @@
-# james-electrode-app [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
+# electrode-example-app-with-plugin-and-routes [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
 > electrode-app
 
 ## Installation
 
 ```sh
-$ npm install --save james-electrode-app
+$ npm install --save electrode-example-app-with-plugin-and-routes
 ```
 
 ## Usage
 
 ```js
-var jamesElectrodeApp = require('james-electrode-app');
+var ElectrodeApp = require('electrode-example-app-with-plugin-and-routes');
 
-jamesElectrodeApp('Rainbow');
+ElectrodeApp('Rainbow');
 ```
 ## License
 
 Apache-2.0 © [tiffine-koch](tiffinekoch)
 
 
-[npm-image]: https://badge.fury.io/js/james-electrode-app.svg
-[npm-url]: https://npmjs.org/package/james-electrode-app
-[travis-image]: https://travis-ci.org/electrode-io/james-electrode-app.svg?branch=master
-[travis-url]: https://travis-ci.org/electrode-io/james-electrode-app
-[daviddm-image]: https://david-dm.org/electrode-io/james-electrode-app.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/electrode-io/james-electrode-app
+[npm-image]: https://badge.fury.io/js/electrode-example-app-with-plugin-and-routes.svg
+[npm-url]: https://npmjs.org/package/electrode-example-app-with-plugin-and-routes
+[travis-image]: https://travis-ci.org/electrode-io/electrode-example-app-with-plugin-and-routes.svg?branch=master
+[travis-url]: https://travis-ci.org/electrode-io/electrode-example-app-with-plugin-and-routes
+[daviddm-image]: https://david-dm.org/electrode-io/electrode-example-app-with-plugin-and-routes.svg?theme=shields.io
+[daviddm-url]: https://david-dm.org/electrode-io/electrode-example-app-with-plugin-and-routes
