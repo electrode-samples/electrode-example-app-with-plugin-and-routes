@@ -24,11 +24,10 @@
   },
   "license": "Apache-2.0",
   "scripts": {
-    "start": "gulp dev",
+    "start": "node server/index.js",
     "test": "gulp test",
     "coverage": "gulp check",
-    "heroku-postbuild": "gulp build",
-    "start": "node server/index.js"
+    "heroku-postbuild": "gulp build"
   },
   "dependencies": {
     "bluebird": "^3.4.6",
@@ -37,6 +36,7 @@
     "electrode-router-resolver-engine": "^1.0.0",
     "electrode-server": "^1.0.0",
     "electrode-static-paths": "^1.0.0",
+    "inert": "^4.0.1",
     "lodash": "^4.10.1"
   },
   "devDependencies": {
