@@ -3,12 +3,12 @@
 exports.register = (server, options, next) => {
 
   const friendsArr = JSON.stringify({friends: [
-    {name: "electrode", img: "//goo.gl/CZ4wAF", size: 13},
-    {name: "hapi", img: "//goo.gl/q9uIFW", size: 13},
-    {name: "React", img: "//goo.gl/dL5MXT", size: 13},
-    {name: "Redux", img: "//goo.gl/L0mLmT", size: 13},
-    {name: "Webpack", img: "//goo.gl/2AV3Dn", size: 13},
-    {name: "wizard", img: "//goo.gl/UdhbKO", size: 13}
+    {name: "electrode", img: "//goo.gl/I9utJF", size: 13},
+    {name: "hapi", img: "//goo.gl/bEBi6G", size: 13},
+    {name: "React", img: "//goo.gl/xwbqlB", size: 13},
+    {name: "Redux", img: "//goo.gl/MGQ3lp", size: 13},
+    {name: "Webpack", img: "//goo.gl/zgxe8s", size: 13},
+    {name: "node", img: "//goo.gl/hxmCEE", size: 13}
   ]});
 
   server.route({
