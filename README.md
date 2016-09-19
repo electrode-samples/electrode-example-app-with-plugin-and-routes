@@ -12,7 +12,7 @@ $ npm install
 $ gulp dev
 ```
 
-Navigate to your browser and run `localhost:3000` and have fun. Open this application in your favorite text editor to examine the code, personalize the application and add more [Electrode components](https://electrode-io.github.io/docs/create_standalone_component.html).
+Navigate to your browser and run `localhost:3000` and have fun. Open this application in your favorite text editor to examine the code, personalize the application and add more [Electrode components](https://electrode-io.github.io/docs/create_standalone_component.html). You can view the Heroku deployed version of this [example app here](https://electrode-example-party-app.herokuapp.com/).
 
 ##Features
 This example app is built on the [Electrode Boilerplate](https://github.com/electrode-io/electrode-boilerplate-universal-react-node) and contains the following technologies:
