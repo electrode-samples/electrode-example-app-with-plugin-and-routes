@@ -17,6 +17,10 @@
     "lib"
   ],
   "main": "server/index.js",
+  "engine": {
+    "node": ">=4.0.0",
+    "npm": ">=3.0.0"
+  },
   "keywords": [],
   "repository": {
     "type": "git",
@@ -27,7 +31,8 @@
     "start": "gulp dev",
     "test": "gulp test",
     "coverage": "gulp check",
-    "heroku-postbuild": "gulp build"
+    "heroku-postbuild": "gulp build",
+    "start": "node server/index.js"
   },
   "dependencies": {
     "bluebird": "^3.4.6",
