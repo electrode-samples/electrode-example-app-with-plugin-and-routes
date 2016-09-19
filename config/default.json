@@ -1,5 +1,8 @@
 {
   "plugins": {
+    "inert": {
+      "enable": true
+    },
     "webapp": {
       "module": "./server/plugins/webapp",
       "options": {
