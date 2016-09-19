@@ -16,7 +16,7 @@
   "files": [
     "lib"
   ],
-  "main": "lib/index.js",
+  "main": "server/index.js",
   "keywords": [],
   "repository": {
     "type": "git",
@@ -26,7 +26,8 @@
   "scripts": {
     "start": "gulp dev",
     "test": "gulp test",
-    "coverage": "gulp check"
+    "coverage": "gulp check",
+    "heroku-postbuild": "gulp build"
   },
   "dependencies": {
     "bluebird": "^3.4.6",
