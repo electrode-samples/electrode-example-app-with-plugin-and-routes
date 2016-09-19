@@ -28,14 +28,14 @@
   },
   "license": "Apache-2.0",
   "scripts": {
-    "start": "gulp dev",
+    "start": "node server/index.js",
     "test": "gulp test",
     "coverage": "gulp check",
-    "heroku-postbuild": "gulp build",
-    "start": "node server/index.js"
+    "heroku-postbuild": "gulp build"
   },
   "dependencies": {
     "bluebird": "^3.4.6",
+    "electrode-confippet": "^1.5.0",
     "electrode-houseparty-example-component": "^2.0",
     "electrode-router-resolver-engine": "^1.0.0",
     "electrode-server": "^1.0.0",
