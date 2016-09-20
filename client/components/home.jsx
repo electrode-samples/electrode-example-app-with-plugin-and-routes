@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from "react";
 import { Link } from "react-router";
-import styles from "../styles/base.css";
 
 export class Home extends Component {
 
@@ -58,7 +57,7 @@ export class Home extends Component {
     const message = this.introMessage;
 
     return (
-      <div className={styles.rootDiv}>
+      <div>
         {React.cloneElement(this.props.children, {
           ourFriends, invitees, toggleGuest, view, message
         })}
