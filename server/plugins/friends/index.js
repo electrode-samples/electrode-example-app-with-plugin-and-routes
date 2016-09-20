@@ -3,11 +3,7 @@
 const Promise = require("bluebird");
 const GitHubApi = require("github");
 const github = new GitHubApi();
-const AUTH_TOKEN = process.env.token;
-github.authenticate({
-  type: "oauth",
-  token: AUTH_TOKEN
-});
+
 const githubGetContributors = Promise.promisify(github.repos.getContributors);
 
 exports.register = (server, options, next) => {
