@@ -3,18 +3,13 @@
 const Promise = require("bluebird");
 const GitHubApi = require("github");
 const github = new GitHubApi();
-const AUTH_TOKEN = process.env.token;
-github.authenticate({
-  type: "oauth",
-  token: AUTH_TOKEN
-});
+
 const githubGetContributors = Promise.promisify(github.repos.getContributors);
 
 exports.register = (server, options, next) => {
 
   const friendsArr = [
     {name: "electrode", img: "//goo.gl/I9utJF", size: 9, github: "https://github.com/electrode-io/electrode-boilerplate-universal-react-node"},
-    {name: "electrode", img: "//goo.gl/I9utJF", size: 9, github: "https://github.com/electrode-io/electrode-io.github.io"},
     {name: "hapi", img: "//goo.gl/bEBi6G", size: 9, github: "https://github.com/hapijs/hapi"},
     {name: "React", img: "//goo.gl/xwbqlB", size: 9, github: "https://github.com/facebook/react"},
     {name: "Redux", img: "//goo.gl/MGQ3lp", size: 9, github: "https://github.com/reactjs/redux"},
