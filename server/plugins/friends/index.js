@@ -1,22 +1,52 @@
 "use strict";
 
+const Promise = require("bluebird");
+const GitHubApi = require("github");
+const github = new GitHubApi();
+const AUTH_TOKEN = process.env.token;
+github.authenticate({
+  type: "oauth",
+  token: AUTH_TOKEN
+});
+const githubGetContributors = Promise.promisify(github.repos.getContributors);
+
 exports.register = (server, options, next) => {
 
-  const friendsArr = JSON.stringify({friends: [
-    {name: "electrode", img: "//goo.gl/I9utJF", size: 13},
-    {name: "hapi", img: "//goo.gl/bEBi6G", size: 13},
-    {name: "React", img: "//goo.gl/xwbqlB", size: 13},
-    {name: "Redux", img: "//goo.gl/MGQ3lp", size: 13},
-    {name: "Webpack", img: "//goo.gl/zgxe8s", size: 13},
-    {name: "node", img: "//goo.gl/hxmCEE", size: 13}
-  ]});
+  const friendsArr = [
+    {name: "electrode", img: "//goo.gl/I9utJF", size: 8, github: "https://github.com/electrode-io/electrode-archetype-react-app"},
+    {name: "hapi", img: "//goo.gl/bEBi6G", size: 8, github: "https://github.com/hapijs/hapi"},
+    {name: "React", img: "//goo.gl/xwbqlB", size: 8, github: "https://github.com/facebook/react"},
+    {name: "Redux", img: "//goo.gl/MGQ3lp", size: 8, github: "https://github.com/reactjs/redux"},
+    {name: "Webpack", img: "//goo.gl/zgxe8s", size: 8, github: "https://github.com/webpack/webpack"},
+    {name: "node", img: "//goo.gl/hxmCEE", size: 8, github: "https://github.com/nodejs/node"}
+  ];
+
+  const getContributorsPromises = friendsArr.map((friend) => {
+    let githubUrl = friend.github.split('/');
+    const githubInfo = {
+      repo: githubUrl.pop(),
+      user: githubUrl.pop(),
+      anon: true,
+      page: 1,
+      per_page: 10
+    };
+    return githubGetContributors(githubInfo)
+      .then((response) => {
+        friend["friends"] = response.map(({ login, avatar_url, url }) => ({name: login, img: avatar_url, profile: url}));
+        return friend;
+      })
+  });
+
+  const getFriendsAndContributors = (reply) => {
+    return Promise.all(getContributorsPromises)
+      .then((response) => (reply(null, JSON.stringify({friends: response}))))
+      .catch((err) => reply(err))
+  };
 
   server.route({
     method: "GET",
     path: "/friends",
-    handler: (request, reply) => {
-      reply(friendsArr);
-    }
+    handler: (request, reply) => getFriendsAndContributors(reply)
   });
 
   next();
