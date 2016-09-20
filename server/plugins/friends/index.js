@@ -29,7 +29,7 @@ exports.register = (server, options, next) => {
       user: githubUrl.pop(),
       anon: true,
       page: 1,
-      per_page: 8
+      per_page: 10
     };
     return githubGetContributors(githubInfo)
       .then((response) => {
