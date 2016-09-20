@@ -13,17 +13,15 @@ const githubGetContributors = Promise.promisify(github.repos.getContributors);
 
 exports.register = (server, options, next) => {
 
-  const friendsArr = [
-    {name: "electrode", img: "//goo.gl/I9utJF", size: 9, github: "https://github.com/electrode-io/electrode-boilerplate-universal-react-node"},
-    {name: "hapi", img: "//goo.gl/bEBi6G", size: 9, github: "https://github.com/hapijs/hapi"},
-    {name: "React", img: "//goo.gl/xwbqlB", size: 9, github: "https://github.com/facebook/react"},
-    {name: "Redux", img: "//goo.gl/MGQ3lp", size: 9, github: "https://github.com/reactjs/redux"},
-    {name: "Webpack", img: "//goo.gl/zgxe8s", size: 9, github: "https://github.com/webpack/webpack"},
-    {name: "node", img: "//goo.gl/hxmCEE", size: 9, github: "https://github.com/nodejs/node"}
-  ];
+  const friendsArr = [ /*eslint-disable max-len */
+    {name: "Electrode", img: "//goo.gl/I9utJF", size: 8, github: "https://github.com/electrode-io/electrode-boilerplate-universal-react-node"},
+    {name: "React", img: "//goo.gl/xwbqlB", size: 8, github: "https://github.com/facebook/react"},
+    {name: "Redux", img: "//goo.gl/MGQ3lp", size: 8, github: "https://github.com/reactjs/redux"},
+    {name: "node", img: "//goo.gl/hxmCEE", size: 8, github: "https://github.com/nodejs/node"}
+  ]; /*eslint-enable max-len */
 
-  const getContributorsPromises = friendsArr.map((friend) => {
-    let githubUrl = friend.github.split('/');
+  const getContributorsPromises = friendsArr.map((friend) => { /*eslint-disable camelcase */
+    const githubUrl = friend.github.split("/");
     const githubInfo = {
       repo: githubUrl.pop(),
       user: githubUrl.pop(),
@@ -33,15 +31,17 @@ exports.register = (server, options, next) => {
     };
     return githubGetContributors(githubInfo)
       .then((response) => {
-        friend["friends"] = response.map(({ login, avatar_url, url }) => ({name: login, img: avatar_url, profile: url}));
+        friend.friends = response.map(({ login, avatar_url, html_url }) => (
+          {name: login, img: avatar_url, profile: html_url}
+        ));
         return friend;
-      })
-  });
+      });
+  }); /*eslint-enable camelcase */
 
   const getFriendsAndContributors = (reply) => {
     return Promise.all(getContributorsPromises)
-      .then((response) => (reply(null, JSON.stringify({friends: response}))))
-      .catch((err) => reply(err))
+      .then((response) => reply(null, JSON.stringify({friends: response})))
+      .catch((err) => reply(err));
   };
 
   server.route({
