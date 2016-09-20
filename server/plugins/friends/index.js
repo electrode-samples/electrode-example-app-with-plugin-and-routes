@@ -8,6 +8,7 @@ github.authenticate({
   type: "oauth",
   token: AUTH_TOKEN
 });
+
 const githubGetContributors = Promise.promisify(github.repos.getContributors);
 
 exports.register = (server, options, next) => {
