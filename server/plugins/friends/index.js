@@ -13,12 +13,12 @@ const githubGetContributors = Promise.promisify(github.repos.getContributors);
 exports.register = (server, options, next) => {
 
   const friendsArr = [
-    {name: "electrode", img: "//goo.gl/I9utJF", size: 8, github: "https://github.com/electrode-io/electrode-archetype-react-app"},
-    {name: "hapi", img: "//goo.gl/bEBi6G", size: 8, github: "https://github.com/hapijs/hapi"},
-    {name: "React", img: "//goo.gl/xwbqlB", size: 8, github: "https://github.com/facebook/react"},
-    {name: "Redux", img: "//goo.gl/MGQ3lp", size: 8, github: "https://github.com/reactjs/redux"},
-    {name: "Webpack", img: "//goo.gl/zgxe8s", size: 8, github: "https://github.com/webpack/webpack"},
-    {name: "node", img: "//goo.gl/hxmCEE", size: 8, github: "https://github.com/nodejs/node"}
+    {name: "electrode", img: "//goo.gl/I9utJF", size: 9, github: "https://github.com/electrode-io/electrode-archetype-react-app"},
+    {name: "hapi", img: "//goo.gl/bEBi6G", size: 9, github: "https://github.com/hapijs/hapi"},
+    {name: "React", img: "//goo.gl/xwbqlB", size: 9, github: "https://github.com/facebook/react"},
+    {name: "Redux", img: "//goo.gl/MGQ3lp", size: 9, github: "https://github.com/reactjs/redux"},
+    {name: "Webpack", img: "//goo.gl/zgxe8s", size: 9, github: "https://github.com/webpack/webpack"},
+    {name: "node", img: "//goo.gl/hxmCEE", size: 9, github: "https://github.com/nodejs/node"}
   ];
 
   const getContributorsPromises = friendsArr.map((friend) => {
