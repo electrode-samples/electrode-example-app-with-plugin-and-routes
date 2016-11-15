@@ -12,7 +12,19 @@ This Electrode example app is created by following our [Getting Started](https:/
 ```sh
 $ git clone your-forked-version-of-this app
 $ npm install
-$ gulp dev
+```
+
+Note: You will need to [generate a GitHup Api oAuth token](https://github.com/settings/tokens/new) to remove the preset limit for API requests. We have already added the code to accept and use the token in our Hapi server plugin above `const AUTH_TOKEN = process.env.token`.
+
+Click [here](https://github.com/settings/tokens/new) to set a new personal access token (you may be prompted to login to your GitHub account if you have not already). Create your own `token description` in the form given and for `Select scopes` simply check: `public repo`. Then hit the green `Generate token` button.
+
+You will be redirected to the next page where your new token is. Keep your token private and secure; do not copy and paste it directly into your app. Instead, we will set your token as a Node [environment variable](https://nodejs.org/api/process.html#process_process_env).
+Copy and save this token in a secure place; we will use it several times. Use this token in your command line as follows:
+
+Set the token locally:
+
+```bash
+$ token='your-token-here' gulp dev
 ```
 
 Navigate to your browser and run `localhost:3000` and have fun. Open this application in your favorite text editor to examine the code, personalize the application and add more [Electrode components](https://electrode-io.github.io/docs/create_reusable_component.html). You can view the Heroku deployed version of this [example app here](https://electrode-example-app.herokuapp.com/).
