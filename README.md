@@ -4,6 +4,9 @@
 ## Build With Us
 This Electrode example app is created by following our [Getting Started](https://electrode-io.github.io/docs/quick_guide.html): Quick Start and Intermediate Guide. We start with our out-the-box Electrode App generator, create and publish an awesome standalone component and add a custom Hapi server plugin, routes and CSS modules.
 
+![screencast](./img/screencast.gif)
+
+
 ## Installation
 
 ```sh
