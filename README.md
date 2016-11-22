@@ -82,6 +82,7 @@ This example app is built on the [Electrode Boilerplate](https://github.com/elec
 
 Apache-2.0 © [tiffine-koch](https://github.com/tiffine-koch)
 
+Built with :heart: by [Team Electrode](https://github.com/orgs/electrode-io/people) @WalmartLabs.
 
 [npm-image]: https://badge.fury.io/js/electrode-example-app-with-plugin-and-routes.svg
 [npm-url]: https://npmjs.org/package/electrode-example-app-with-plugin-and-routes
